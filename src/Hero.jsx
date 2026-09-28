@@ -73,7 +73,7 @@ const Hero = () => {
       {/* Navbar */}
       <nav className="w-full px-8 md:px-12 lg:px-16 py-8 grid grid-cols-3 items-center relative z-50">
         <div className="flex items-center justify-start">
-          <img src="/ziwa-logo.png" alt="Ziwa Doctor Diet LLP Logo" className="h-16 w-auto" />
+          <img src="ziwa-logo.png" alt="Ziwa Doctor Diet LLP Logo" className="h-16 w-auto" />
         </div>
         
         <div className="hidden md:flex justify-center space-x-8 lg:space-x-12 text-[15px] font-medium text-gray-500 whitespace-nowrap">
@@ -103,7 +103,7 @@ const Hero = () => {
           <div className="relative">
             <div className="absolute inset-0 bg-[#5ba63b]/10 blur-3xl rounded-full transform scale-150"></div>
             <img 
-              src="/ziwa-logo.png" 
+              src="ziwa-logo.png" 
               alt="Ziwa Doctor Diet LLP Big Logo" 
               className="w-full max-w-[320px] xl:max-w-[450px] h-auto relative z-10 drop-shadow-2xl hover:scale-105 transition-transform duration-500"
             />

@@ -27,7 +27,7 @@ try {
   // Map to the public URL path
   const posterData = imageFiles.map(file => ({
     id: file,
-    url: `/posters/${file}`
+    url: `posters/${file}`
   }));
 
   // Write to src/data/posters.json

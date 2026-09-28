@@ -5,28 +5,28 @@ const OurDoctors = () => {
     {
       name: "Dr. Dilshana",
       specialty: "BAMS (Ayurvedic Physician)",
-      image: "/dr-dilshana.jpg",
+      image: "dr-dilshana.jpg",
       description: "Expert in holistic healing, natural weight management, and lifestyle disorders.",
       imagePosition: "object-center"
     },
     {
       name: "Dr. Fahana",
       specialty: "BAMS (Ayurvedic Physician)",
-      image: "/dr-fahana.jpg",
+      image: "dr-fahana.jpg",
       description: "Dedicated to holistic wellness, specializing in personalized Ayurvedic treatments and care.",
       imagePosition: "object-[center_30%]"
     },
     {
       name: "Dr. Rishali",
       specialty: "BAMS (Ayurvedic Physician)",
-      image: "/dr-rishali.jpg",
+      image: "dr-rishali.jpg",
       description: "Combines ancient Ayurvedic wisdom with modern wellness practices for sustainable health.",
       imagePosition: "object-top"
     },
     {
       name: "Dr. Sumaya",
       specialty: "BAMS (Ayurvedic Physician)",
-      image: "/dr-sumaya.jpg",
+      image: "dr-sumaya.jpg",
       description: "Focuses on customized Ayurvedic diet plans, natural remedies, and lifestyle management.",
       imagePosition: "object-top"
     }

@@ -9,7 +9,7 @@ const Footer = () => {
         {/* Brand Column */}
         <div className="flex flex-col space-y-6">
           <div className="flex items-center">
-            <img src="/ziwa-logo.png" alt="Ziwa Doctor Diet LLP Logo" className="h-14 w-auto bg-white p-2 rounded-xl" />
+            <img src="ziwa-logo.png" alt="Ziwa Doctor Diet LLP Logo" className="h-14 w-auto bg-white p-2 rounded-xl" />
           </div>
           <p className="text-[#a8c7b6] text-sm leading-relaxed max-w-xs">
             A comprehensive, doctor-led health and wellness program designed for your unique transformation journey.

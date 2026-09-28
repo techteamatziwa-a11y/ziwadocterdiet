@@ -10,7 +10,7 @@ const HowItWorks = () => {
         <div 
           className="hidden md:block absolute inset-0 z-0 opacity-100 mix-blend-multiply pointer-events-none"
           style={{ 
-            backgroundImage: "url('/step2-bg.jpg?v=1')",
+            backgroundImage: "url('step2-bg.jpg?v=1')",
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}

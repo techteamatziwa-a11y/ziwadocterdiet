@@ -78,35 +78,35 @@ const FeaturesCarousel = () => {
   const features = [
     {
       title: "Doctor Consultation",
-      image: "/feature-doctor.png"
+      image: "feature-doctor.png"
     },
     {
       title: "Daily Follow-up",
-      image: "/feature-support.png"
+      image: "feature-support.png"
     },
     {
       title: "Customised Diet Chart",
-      image: "/feature-diet.png"
+      image: "feature-diet.png"
     },
     {
       title: "Live Workout Session",
-      image: "/feature-workout.png"
+      image: "feature-workout.png"
     },
     {
       title: "Live Yoga Session",
-      image: "/feature-yoga.png"
+      image: "feature-yoga.png"
     },
     {
       title: "Live Zumba Session",
-      image: "/feature-zumba.jpg"
+      image: "feature-zumba.jpg"
     },
     {
       title: "Doctor Live Interactive",
-      image: "/feature-interactive-doctor.png"
+      image: "feature-interactive-doctor.png"
     },
     {
       title: "Psychology Interactive Session",
-      image: "/feature-psychology.jpg"
+      image: "feature-psychology.jpg"
     }
   ];
 
