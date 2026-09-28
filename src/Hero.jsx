@@ -78,8 +78,8 @@ const Hero = () => {
         
         <div className="hidden md:flex justify-center space-x-8 lg:space-x-12 text-[15px] font-medium text-gray-500 whitespace-nowrap">
           <Link to="/" className="hover:text-gray-900 transition-colors">Ziwa Doctor Diet</Link>
-          <a href="/#about" className="hover:text-gray-900 transition-colors">About</a>
-          <a href="/#packages" className="hover:text-gray-900 transition-colors">Packages</a>
+          <button onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-gray-900 transition-colors font-medium">About</button>
+          <button onClick={() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-gray-900 transition-colors font-medium">Packages</button>
           <Link to="/contact" className="hover:text-gray-900 transition-colors">Contact</Link>
         </div>
         
@@ -125,15 +125,16 @@ const Hero = () => {
             fitness and health transformation
           </p>
           <div>
-            <a href="#packages" className="inline-block">
-              <button className="bg-[#5ba63b] hover:bg-[#4d8c32] text-white px-9 py-[14px] lg:py-[18px] lg:px-10 rounded-full font-semibold text-[15px] flex items-center shadow-lg shadow-[#5ba63b]/30 transition-all duration-300 group">
-                <span className="mr-5 tracking-widest uppercase">Start Now</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-90 group-hover:translate-x-1 transition-transform">
-                  <line x1="2" y1="12" x2="22" y2="12"></line>
-                  <polyline points="15 5 22 12 15 19"></polyline>
-                </svg>
-              </button>
-            </a>
+            <button 
+              onClick={() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-[#5ba63b] hover:bg-[#4d8c32] text-white px-9 py-[14px] lg:py-[18px] lg:px-10 rounded-full font-semibold text-[15px] flex items-center shadow-lg shadow-[#5ba63b]/30 transition-all duration-300 group"
+            >
+              <span className="mr-5 tracking-widest uppercase">Start Now</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-90 group-hover:translate-x-1 transition-transform">
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <polyline points="15 5 22 12 15 19"></polyline>
+              </svg>
+            </button>
           </div>
         </div>
       </main>
