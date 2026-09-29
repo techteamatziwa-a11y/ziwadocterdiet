@@ -8,31 +8,43 @@ function Contact() {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { name, email, message } = formData;
+    setIsSubmitting(true);
     
-    // List of available WhatsApp numbers
-    const whatsappNumbers = ["+91 8891 64 41 41","+91 7559 97 83 20"," +91 7902 41 41 92","+91 7902 41 41 52","+91 8089 12 41 27","+91 9207 41 41 68","+91 7510 63 74 14","+91 8714 35 53 21","+91 9895 30 63 47","+91 7994 87 61 41","+91 9895 92 25 75","+91 7025 41 41 69"];
-    
-    // Pick a random number
-    const randomRawNumber = whatsappNumbers[Math.floor(Math.random() * whatsappNumbers.length)];
-    
-    // Clean the number
-    const cleanNumber = randomRawNumber.replace(/[\s+-]/g, '');
-    
-    const text = `*New General Inquiry*\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:*\n${message}`;
-    const encodedText = encodeURIComponent(text);
-    
-    const whatsappUrl = `https://wa.me/${cleanNumber}?text=${encodedText}`;
-    
-    window.open(whatsappUrl, '_blank');
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "e0f3d784-c32d-49d0-9f10-7c9fc9a541ce",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+      
+      const result = await response.json();
+      if (result.success) {
+        setSuccess(true);
+        setFormData({ name: '', email: '', message: '' });
+      }
+    } catch (error) {
+      console.error("Error sending message", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -55,65 +67,94 @@ function Contact() {
             Have questions about our diet plans? We're here to help. Send us a message and we'll get back to you shortly.
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                Full Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                placeholder="John Doe"
-              />
+          {success ? (
+            <div className="bg-green-50 border border-green-200 text-green-800 rounded-xl p-8 text-center space-y-4">
+              <svg className="w-16 h-16 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <h3 className="text-2xl font-bold">Message Sent!</h3>
+              <p className="text-green-700">Thank you for reaching out. We will get back to you shortly.</p>
+              <button 
+                onClick={() => setSuccess(false)}
+                className="mt-4 px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium"
+              >
+                Send Another Message
+              </button>
             </div>
-            
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                Email Address
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                placeholder="john@example.com"
-              />
-            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                  placeholder="John Doe"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                  placeholder="john@example.com"
+                />
+              </div>
 
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={5}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors resize-none"
-                placeholder="How can we help you?"
-              ></textarea>
-            </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={5}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors resize-none"
+                  placeholder="How can we help you?"
+                ></textarea>
+              </div>
 
-            <button
-              type="submit"
-              className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-3"
-            >
-              <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12.031 0C5.385 0 0 5.386 0 12.033c0 2.12.548 4.195 1.591 6.01L.067 23.633l5.748-1.507c1.748.956 3.731 1.458 5.753 1.458h.005c6.645 0 12.03-5.387 12.03-12.034C23.603 5.385 18.22 0 12.031 0zm0 21.61h-.004c-1.802 0-3.567-.484-5.11-1.401l-.367-.217-3.799.996 1.015-3.705-.238-.379c-1.008-1.603-1.54-3.461-1.54-5.384 0-5.568 4.531-10.096 10.103-10.096 5.568 0 10.099 4.528 10.099 10.096s-4.531 10.09-10.16 10.09zm5.545-7.58c-.304-.152-1.802-.89-2.08-.992-.279-.101-.482-.152-.685.152s-.786.992-.964 1.194c-.178.203-.356.228-.66.076-1.503-.751-2.614-1.393-3.644-2.887-.203-.279.03-.45.18-.621.15-.171.304-.356.456-.533.152-.178.203-.304.304-.507.102-.203.051-.381-.025-.533-.076-.152-.685-1.65-.938-2.259-.249-.597-.502-.516-.685-.525-.178-.009-.381-.009-.584-.009-.203 0-.533.076-.812.381s-1.065 1.041-1.065 2.538c0 1.498 1.091 2.945 1.243 3.148.152.203 2.146 3.275 5.197 4.593.726.314 1.293.502 1.734.643.728.232 1.391.199 1.916.12.589-.089 1.802-.736 2.055-1.447.254-.711.254-1.32.178-1.447-.076-.127-.279-.203-.583-.355z" />
-              </svg>
-              Send via WhatsApp
-            </button>
-          </form>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`w-full text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg flex items-center justify-center gap-3 ${
+                  isSubmitting ? 'bg-green-400 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700 transform hover:scale-105'
+                }`}
+              >
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    Send Email Message
+                  </>
+                )}
+              </button>
+            </form>
+          )}
         </div>
       </main>
 
