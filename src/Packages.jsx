@@ -17,10 +17,13 @@ const Packages = () => {
       <div className="max-w-[1200px] mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-[#102b1c] mb-6">
-            Our <span className="text-[#5ba63b]">Packages</span>
+            Weight Loss Program <span className="text-[#5ba63b]">Packages</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Choose the transformation plan that best fits your goals and lifestyle.
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-6">
+            People who want a doctor guided weight loss program, in Kerala will find Ziwa Doctor Diet helpful. Ziwa Doctor Diet brings together doctor consultation, personalised diet guidance, daily follow-up and live wellness sessions into one program.
+          </p>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto font-medium">
+            Choose a program length that matches your goals, your routine and how much support you want.
           </p>
         </div>
 

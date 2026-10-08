@@ -6,28 +6,28 @@ const OurDoctors = () => {
       name: "Dr. Dilshana",
       specialty: "BAMS (Ayurvedic Physician)",
       image: "dr-dilshana.jpg",
-      description: "Expert in holistic healing, natural weight management, and lifestyle disorders.",
+      description: "Ayurvedic physician who works on health, natural weight management and lifestyle care.",
       imagePosition: "object-center"
     },
     {
       name: "Dr. Fahana",
       specialty: "BAMS (Ayurvedic Physician)",
       image: "dr-fahana.jpg",
-      description: "Dedicated to holistic wellness, specializing in personalized Ayurvedic treatments and care.",
+      description: "Ayurvedic physician who works on wellness and personalised Ayurvedic care.",
       imagePosition: "object-[center_30%]"
     },
     {
       name: "Dr. Rishali",
       specialty: "BAMS (Ayurvedic Physician)",
       image: "dr-rishali.jpg",
-      description: "Combines ancient Ayurvedic wisdom with modern wellness practices for sustainable health.",
+      description: "Ayurvedic physician who works on combining principles with modern wellness practices, for sustainable health.",
       imagePosition: "object-top"
     },
     {
       name: "Dr. Sumaya",
       specialty: "BAMS (Ayurvedic Physician)",
       image: "dr-sumaya.jpg",
-      description: "Focuses on customized Ayurvedic diet plans, natural remedies, and lifestyle management.",
+      description: "Ayurvedic physician who works on Ayurvedic diet guidance, natural approaches and lifestyle management.",
       imagePosition: "object-top"
     }
   ];
@@ -37,13 +37,13 @@ const OurDoctors = () => {
       <div className="max-w-[1400px] mx-auto">
         <div className="text-center mb-16">
           <div className="inline-block bg-[#e4fceb] text-[#5ba63b] px-5 py-2 rounded-full font-bold text-sm mb-6 shadow-sm border border-[#d1f5de]">
-            Meet Our Experts
+            Meet Our experts
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-[#102b1c] mb-6">
             Our <span className="text-[#5ba63b]">Doctors</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Our team of certified medical professionals, dietitians, and fitness experts are here to guide you every step of the way.
+          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+            Our BAMS Ayurvedic physicians provide guidance as part of your health and weight-management journey, helping you follow a personalised approach based on your individual needs.
           </p>
         </div>
 

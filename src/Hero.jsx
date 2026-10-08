@@ -119,10 +119,10 @@ const Hero = () => {
             <span className="text-[#5ba63b] block mb-2">Health is the aim;</span>
             <span className="text-[#102b1c] block text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4.5rem]">Weight loss is the bonus.</span>
           </h1>
-          <p className="text-[#333] text-base sm:text-lg lg:text-[1.35rem] max-w-[550px] mb-10 leading-[1.6] font-medium">
-            Doctor-guided, dietitian-designed,<br className="hidden sm:block" />
-            trainer-driven — a complete approach to your<br className="hidden sm:block" />
-            fitness and health transformation
+          <p className="text-[#333] text-base sm:text-lg lg:text-xl max-w-[550px] mb-10 leading-[1.6] font-medium">
+            Ziwa Doctor Diet provides a doctor-guided way to manage weight in a way. It includes diet
+            plans, daily check-ins and live fitness sessions. This helps people work toward their health
+            and lifestyle goals with support, from professionals.
           </p>
           <div>
             <button 

@@ -64,7 +64,7 @@ function Contact() {
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden p-8 md:p-12">
           <h1 className="text-4xl font-extrabold text-gray-900 mb-6 text-center">Contact Us</h1>
           <p className="text-lg text-gray-600 mb-8 text-center">
-            Have questions about our diet plans? We're here to help. Send us a message and we'll get back to you shortly.
+            Do you have questions about our weight loss programs?. Would you like to know which plan suits you best? Contact the Ziwa Doctor Diet team. We will share details, about our diet plans, doctor consultation, daily follow-up and live wellness sessions.
           </p>
 
           {success ? (

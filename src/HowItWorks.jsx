@@ -50,7 +50,7 @@ const HowItWorks = () => {
               <span className="text-[#5ba63b] text-lg font-bold mb-3 block tracking-wider uppercase">Step 01</span>
               <h3 className="text-[#102b1c] text-xl lg:text-[22px] font-bold mb-4 leading-snug">Health<br />Assesment</h3>
               <p className="text-gray-600 text-sm leading-relaxed font-medium">
-                Dietitian records your weight, height, lifestyle, and health details.
+                Our dietitian records your weight, height, lifestyle and relevant health details to understand your individual needs.
               </p>
             </div>
 
@@ -59,7 +59,7 @@ const HowItWorks = () => {
               <span className="text-white/90 text-lg font-bold mb-3 block tracking-wider uppercase drop-shadow-sm">Step 02</span>
               <h3 className="text-white text-xl lg:text-[22px] font-bold mb-4 leading-snug drop-shadow-sm">Doctor's<br />Consultation</h3>
               <p className="text-white/90 text-sm leading-relaxed font-medium">
-                Our doctors review your medical issues and select the right approach.
+                Our doctors review your health information and provide guidance based on your individual requirements and weight-management goals.
               </p>
             </div>
 
@@ -68,7 +68,7 @@ const HowItWorks = () => {
               <span className="text-[#5ba63b] text-lg font-bold mb-3 block tracking-wider uppercase">Step 03</span>
               <h3 className="text-[#102b1c] text-xl lg:text-[22px] font-bold mb-4 leading-snug">Personalized<br />Diet Plan</h3>
               <p className="text-gray-600 text-sm leading-relaxed font-medium">
-                System combines all data to create a simple, practical, and effective health plan.
+                Your health and lifestyle information is used to create a personalized diet plan that is practical and suitable for your everyday routine.
               </p>
             </div>
 
@@ -77,7 +77,7 @@ const HowItWorks = () => {
               <span className="text-white/90 text-lg font-bold mb-3 block tracking-wider uppercase drop-shadow-sm">Step 04</span>
               <h3 className="text-white text-xl lg:text-[22px] font-bold mb-4 leading-snug drop-shadow-sm">Continuous<br />Support</h3>
               <p className="text-white/90 text-sm leading-relaxed font-medium">
-                Daily workouts + weekly live sessions + dietitian follow-up.
+                Stay supported through daily dietitian follow-up, live workouts and interactive sessions throughout your program.
               </p>
             </div>
 

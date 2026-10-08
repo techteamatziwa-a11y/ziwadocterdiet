@@ -7,6 +7,7 @@ import HowItWorks from './HowItWorks'
 import Packages from './Packages'
 import OurDoctors from './OurDoctors'
 import Testimonials from './Testimonials'
+import FAQ from './FAQ'
 import Footer from './Footer'
 
 function Home() {
@@ -45,6 +46,7 @@ function Home() {
       <OurDoctors />
       <Packages />
       <Testimonials />
+      <FAQ />
       <Footer />
     </>
   )

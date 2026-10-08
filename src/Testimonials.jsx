@@ -58,9 +58,12 @@ const Testimonials = () => {
           <div className="inline-block bg-[#e4fceb] text-[#5ba63b] px-5 py-2 rounded-full font-bold text-sm mb-6 shadow-sm border border-[#d1f5de]">
             ✨ 5000+ Happy Clients
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-[#102b1c] mb-10 leading-tight">
-            Client <span className="text-[#5ba63b]">Transformations</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-[#102b1c] mb-6 leading-tight">
+            Client Weight Loss <span className="text-[#5ba63b]">Transformations</span>
           </h2>
+          <p className="text-gray-600 text-lg max-w-4xl mx-auto mb-10 leading-relaxed">
+            Explore the weight-loss journeys of our clients. They followed our guided programs. They worked towards their health goals. Each story shows the progress they made. Each story shows the effort they put in. Each story shows the results they achieved. These are people with real goals. These are people with real successes. These are people, with real changes. Their journeys are different. Their journeys are unique. Their journeys are inspiring. Their journeys are proof that it can be done. Their journeys are proof that it works. Their journeys are proof that it's possible.
+          </p>
         </div>
         
         {/* Client Posters Gallery */}
