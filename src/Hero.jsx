@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const containerRef = useRef(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     let rAF;
@@ -43,7 +44,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="min-h-screen font-sans bg-[#f8fdf9] overflow-hidden relative flex flex-col z-0">
+    <div ref={containerRef} id="home" className="min-h-screen font-sans bg-[#f8fdf9] overflow-hidden relative flex flex-col z-0">
 
       {/* --- PARALLAX BACKGROUND LAYERS --- */}
       {/* Back Layer (moves slowest, furthest away) */}
@@ -71,25 +72,65 @@ const Hero = () => {
       ></div>
 
       {/* Navbar */}
-      <nav className="w-full px-8 md:px-12 lg:px-16 py-8 grid grid-cols-3 items-center relative z-50">
-        <div className="flex items-center justify-start">
-          <img src="ziwa-logo.png" alt="Ziwa Doctor Diet LLP Logo" className="h-16 w-auto" />
+      <nav className="w-full px-8 md:px-12 lg:px-16 py-8 relative z-50">
+        <div className="grid grid-cols-2 md:grid-cols-3 items-center">
+          <div className="flex items-center justify-start">
+            <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              <img src="ziwa-logo.png" alt="Ziwa Doctor Diet LLP Logo" className="h-16 w-auto cursor-pointer" />
+            </Link>
+          </div>
+          
+          <div className="hidden md:flex justify-center space-x-8 lg:space-x-12 text-[15px] font-medium text-gray-500 whitespace-nowrap">
+            <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-gray-900 transition-colors">Ziwa Doctor Diet</Link>
+            <button onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-gray-900 transition-colors font-medium cursor-pointer">About</button>
+            <button onClick={() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-gray-900 transition-colors font-medium cursor-pointer">Packages</button>
+            <Link to="/blog" className="hover:text-gray-900 transition-colors font-medium">Blog</Link>
+            <Link to="/faq" className="hover:text-gray-900 transition-colors font-medium">FAQ</Link>
+            <Link to="/contact" className="hover:text-gray-900 transition-colors">Contact</Link>
+          </div>
+          
+          <div className="hidden md:block justify-end"></div>
+          
+          <div className="md:hidden flex justify-end">
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 text-[#0e3b62] focus:outline-none cursor-pointer"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? (
+                <svg className="w-8 h-8" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              ) : (
+                <svg className="w-8 h-8" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
-        
-        <div className="hidden md:flex justify-center space-x-8 lg:space-x-12 text-[15px] font-medium text-gray-500 whitespace-nowrap">
-          <Link to="/" className="hover:text-gray-900 transition-colors">Ziwa Doctor Diet</Link>
-          <button onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-gray-900 transition-colors font-medium">About</button>
-          <button onClick={() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-gray-900 transition-colors font-medium">Packages</button>
-          <Link to="/contact" className="hover:text-gray-900 transition-colors">Contact</Link>
-        </div>
-        
-        <div className="hidden md:block justify-end"></div>
-        
-        <div className="md:hidden flex justify-end col-span-2">
-            <svg className="w-8 h-8 text-[#0e3b62]" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-        </div>
+
+        {/* Mobile Dropdown Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden mt-4 py-4 px-6 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-gray-100 flex flex-col space-y-4 text-center">
+            <Link to="/" onClick={() => { setMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-gray-700 font-medium py-1 hover:text-[#5ba63b]">Home</Link>
+            <button 
+              onClick={() => { setMobileMenuOpen(false); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }} 
+              className="text-gray-700 font-medium py-1 hover:text-[#5ba63b] text-center"
+            >
+              About
+            </button>
+            <button 
+              onClick={() => { setMobileMenuOpen(false); document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' }); }} 
+              className="text-gray-700 font-medium py-1 hover:text-[#5ba63b] text-center"
+            >
+              Packages
+            </button>
+            <Link to="/blog" onClick={() => setMobileMenuOpen(false)} className="text-gray-700 font-medium py-1 hover:text-[#5ba63b]">Blog</Link>
+            <Link to="/faq" onClick={() => setMobileMenuOpen(false)} className="text-gray-700 font-medium py-1 hover:text-[#5ba63b]">FAQ</Link>
+            <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="text-gray-700 font-medium py-1 hover:text-[#5ba63b]">Contact</Link>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
@@ -120,9 +161,7 @@ const Hero = () => {
             <span className="text-[#102b1c] block text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4.5rem]">Weight loss is the bonus.</span>
           </h1>
           <p className="text-[#333] text-base sm:text-lg lg:text-xl max-w-[550px] mb-10 leading-[1.6] font-medium">
-            Ziwa Doctor Diet provides a doctor-guided way to manage weight in a way. It includes diet
-            plans, daily check-ins and live fitness sessions. This helps people work toward their health
-            and lifestyle goals with support, from professionals.
+            We Have Helped More Than 3 Lakh People in Their Journey to Healthy Weight Loss. Personalized diet plans, doctor guidance, follow-ups and live fitness sessions help build healthy habits. Health is our goal; weight loss is our gift.
           </p>
           <div>
             <button 

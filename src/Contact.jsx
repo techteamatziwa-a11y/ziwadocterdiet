@@ -52,10 +52,15 @@ function Contact() {
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-green-700 tracking-tight">Ziwa Doctor Diet</span>
+            <Link to="/" className="flex items-center gap-3">
+              <img src="ziwa-logo.png" alt="Ziwa Doctor Diet Logo" className="h-10 w-auto" />
+              <span className="text-2xl font-bold text-green-700 tracking-tight">Ziwa Doctor Diet</span>
+            </Link>
           </div>
-          <nav className="hidden md:flex gap-8">
+          <nav className="flex gap-5 sm:gap-7">
             <Link to="/" className="text-gray-600 hover:text-green-700 font-medium transition-colors">Home</Link>
+            <Link to="/blog" className="text-gray-600 hover:text-green-700 font-medium transition-colors">Blog</Link>
+            <Link to="/faq" className="text-gray-600 hover:text-green-700 font-medium transition-colors">FAQ</Link>
           </nav>
         </div>
       </header>

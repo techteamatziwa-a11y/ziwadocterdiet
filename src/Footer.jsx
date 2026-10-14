@@ -1,7 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Footer = () => {
+  const location = useLocation();
+
+  const handleHomeClick = (e) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      const hero = document.getElementById('home');
+      if (hero) {
+        hero.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+  };
+
+  const handleScrollTo = (e, sectionId) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <footer className="bg-[#102b1c] text-white py-16 px-6 md:px-12 lg:px-20 font-sans border-t-[8px] border-[#5ba63b]">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
@@ -9,7 +33,9 @@ const Footer = () => {
         {/* Brand Column */}
         <div className="flex flex-col space-y-6">
           <div className="flex items-center">
-            <img src="ziwa-logo.png" alt="Ziwa Doctor Diet LLP Logo" className="h-14 w-auto bg-white p-2 rounded-xl" />
+            <Link to="/" onClick={handleHomeClick} aria-label="Ziwa Doctor Diet Home">
+              <img src="ziwa-logo.png" alt="Ziwa Doctor Diet LLP Logo" className="h-14 w-auto bg-white p-2 rounded-xl hover:opacity-90 transition-opacity cursor-pointer" />
+            </Link>
           </div>
           <p className="text-[#a8c7b6] text-sm leading-relaxed max-w-xs">
             A comprehensive, doctor-led health and wellness program designed for your unique transformation journey.
@@ -29,9 +55,49 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-6 tracking-wide text-white">Quick Links</h3>
           <ul className="space-y-4">
-            <li><Link to="/" className="text-[#a8c7b6] hover:text-[#5ba63b] transition-colors">Home</Link></li>
-            <li><a href="/#packages" className="text-[#a8c7b6] hover:text-[#5ba63b] transition-colors">Our Programs</a></li>
-            <li><a href="/#success-stories" className="text-[#a8c7b6] hover:text-[#5ba63b] transition-colors">Success Stories</a></li>
+            <li>
+              <Link 
+                to="/" 
+                onClick={handleHomeClick} 
+                className="text-[#a8c7b6] hover:text-[#5ba63b] transition-colors cursor-pointer"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/#packages" 
+                onClick={(e) => handleScrollTo(e, 'packages')} 
+                className="text-[#a8c7b6] hover:text-[#5ba63b] transition-colors cursor-pointer"
+              >
+                Our Programs
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/#success-stories" 
+                onClick={(e) => handleScrollTo(e, 'success-stories')} 
+                className="text-[#a8c7b6] hover:text-[#5ba63b] transition-colors cursor-pointer"
+              >
+                Success Stories
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/blog" 
+                className="text-[#a8c7b6] hover:text-[#5ba63b] transition-colors cursor-pointer"
+              >
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/faq" 
+                className="text-[#a8c7b6] hover:text-[#5ba63b] transition-colors cursor-pointer"
+              >
+                FAQ
+              </Link>
+            </li>
           </ul>
         </div>
 
